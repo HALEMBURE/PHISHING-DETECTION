@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: phishing-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd milestone1/API && uvicorn app:app --host 0.0.0.0 --port $PORT
+    autoDeploy: true
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: TOKEN_SECRET
+        sync: false
+      - key: FRONTEND_ORIGINS
+        value: https://your-site.vercel.app
+      - key: MALICIOUS_PROBA_THRESHOLD
+        value: "0.75"
+      - key: PYTHON_VERSION
+        value: "3.11"
+    disk:
+      name: users-db
+      mountPath: /opt/render/project/src/milestone1/API
+      sizeGB: 1

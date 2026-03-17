@@ -1,0 +1,9 @@
+{
+  "name": "phishguard-deploy",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-config.js",
+    "vercel-build": "npm run build"
+  }
+}

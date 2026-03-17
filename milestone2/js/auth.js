@@ -1,4 +1,5 @@
-const BACKEND_URL = sessionStorage.getItem("backendUrl")
+const BACKEND_URL = (typeof window !== "undefined" && window.BACKEND_URL)
+    || sessionStorage.getItem("backendUrl")
     || localStorage.getItem("backendUrl")
     || "http://127.0.0.1:8000";
 let popupTimer = null;

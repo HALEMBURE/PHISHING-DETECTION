@@ -14,7 +14,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import joblib
-import chatbot
+#import chatbot
 try:
     import jwt
     from jwt import ExpiredSignatureError, InvalidTokenError

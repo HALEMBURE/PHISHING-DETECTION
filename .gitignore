@@ -17,7 +17,6 @@ milestone1/MODEL/dataset_balanced.csv
 
 # Raw or sensitive data
 milestone1/DATA/
-milestone2/config.js
 
 # Local IDE/system files
 .DS_Store

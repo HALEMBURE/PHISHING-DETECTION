@@ -14,7 +14,11 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import joblib
-#import chatbot
+try:
+    import chatbot
+except Exception as e:
+    chatbot = None
+    print("Chatbot module not available:", e)
 try:
     import jwt
     from jwt import ExpiredSignatureError, InvalidTokenError
@@ -346,14 +350,17 @@ def client_identity(ip_header: str | None, fallback: str, user_hint: str = "") -
     return identity
 
 
-chatbot.register_chat_routes(
-    app=app,
-    get_current_user=get_current_user,
-    check_rate_limit=check_rate_limit,
-    client_identity=client_identity,
-    db_session_factory=SessionLocal,
-    ChatMessage=ChatMessage,
-)
+if chatbot is not None:
+    chatbot.register_chat_routes(
+        app=app,
+        get_current_user=get_current_user,
+        check_rate_limit=check_rate_limit,
+        client_identity=client_identity,
+        db_session_factory=SessionLocal,
+        ChatMessage=ChatMessage,
+    )
+else:
+    print("Chat routes disabled because chatbot module is missing.")
 
 
 # -----------------------------

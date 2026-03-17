@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sqlalchemy
+passlib[bcrypt]
+joblib
+scikit-learn
+pandas
+pytest
+httpx
+PyJWT

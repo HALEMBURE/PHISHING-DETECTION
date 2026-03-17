@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhishGuard AI Dashboard</title>
+
+<link rel="stylesheet" href="css/styles.css?v=2">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+if (!sessionStorage.getItem("accessToken")) {
+    window.location.href = "index.html";
+}
+</script>
+</head>
+<body>
+
+<canvas id="cyberCanvas"></canvas>
+
+<div class="topbar">
+    <div class="left">
+        <div class="brand-block">
+            <div class="brand-row">
+                <span class="brand-logo" aria-hidden="true"></span>
+                <h2 class="brand-title">PhishGuard AI</h2>
+            </div>
+            <p class="brand-sub">URL Threat Intelligence Dashboard</p>
+        </div>
+    </div>
+    <div class="right">
+        <div class="profile-chip">
+            <div id="topProfileAvatar" class="profile-mini-avatar"></div>
+            <span id="topProfileName" class="top-profile-name"></span>
+        </div>
+    </div>
+</div>
+
+<button id="menuToggle" class="menu-toggle menu-toggle-floating" type="button" aria-label="Toggle menu">&#9776;</button>
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-content">
+        <a href="#" id="homeBtn" class="nav-link active">Home</a>
+        <a href="#" id="chartsBtn" class="nav-link">Charts</a>
+        <a href="#" id="historyBtn" class="nav-link">History</a>
+
+        <div class="sidebar-profile" id="sidebarProfile">
+            <div class="profile-box">
+                <div class="profile-avatar" id="profileAvatar"></div>
+                <div class="profile-details">
+                    <div id="profileName"></div>
+                    <div id="profileEmail" class="profile-email"></div>
+                </div>
+            </div>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <section id="homeSection" class="page-section">
+        <div class="scan-box glass">
+            <h3>Scan URL</h3>
+            <div class="scan-row">
+                <input type="text" id="urlInput" placeholder="Enter URL">
+                <button id="scanBtn">Scan</button>
+            </div>
+        </div>
+
+        <div id="scanResultCard" class="result-card hidden glass">
+            <h3 id="resultTitle">Scanning...</h3>
+            <p id="resultURL"></p>
+            <div class="risk-bar">
+                <div id="riskFill"></div>
+            </div>
+            <p id="confidenceText"></p>
+        </div>
+
+        <div class="stats">
+            <div class="card glass"><h4>Total</h4><p id="total">0</p></div>
+            <div class="card glass"><h4>Safe</h4><p id="safe">0</p></div>
+            <div class="card glass"><h4>Phishing</h4><p id="phishing">0</p></div>
+            <div class="card glass"><h4>Accuracy</h4><p id="accuracy">0%</p></div>
+        </div>
+
+        <div class="recent glass">
+            <h3>Recent Scans</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>URL</th>
+                        <th>Result</th>
+                        <th>Probability</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="recentTable"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="chartsSection" class="page-section" style="display:none;">
+        <div class="chart-container glass">
+            <h4>Detection Probability Trend</h4>
+            <canvas id="liveChart"></canvas>
+        </div>
+
+        <div class="chart-row">
+            <div class="chart-container glass" style="flex:1;">
+                <h4>Scan Distribution</h4>
+                <canvas id="pieChart"></canvas>
+            </div>
+            <div class="chart-container glass" style="flex:1;">
+                <h4>Scans per Type</h4>
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section id="historySection" class="page-section" style="display:none;">
+        <div class="glass" style="padding:25px; border-radius:20px;">
+            <h3>Full Scan History</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>URL</th>
+                        <th>Result</th>
+                        <th>Probability</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTable"></tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<button id="chatbotToggle" class="chatbot-toggle" type="button" aria-label="Open assistant">
+    AI Assistant
+</button>
+
+<section id="chatbotPanel" class="chatbot-panel glass" aria-live="polite">
+    <div class="chatbot-header">
+        <div class="chatbot-actions">
+            <button id="chatbotClear" class="chatbot-clear-btn" type="button" aria-label="Clear chat" title="Clear" style="width: 50px; height: 50px; font-size: 10px;">
+                Clear
+            </button>
+            <button id="chatbotClose" class="chatbot-close-btn" type="button" aria-label="Close assistant" title="Close">×</button>
+        </div>
+        <div class="chatbot-title-wrap">
+            <h4>PhishGuard Assistant</h4>
+            <p>Quick help for scan, charts, and login</p>
+        </div>
+    </div>
+    <div id="chatbotMessages" class="chatbot-messages"></div>
+    <div class="chatbot-input-row">
+        <input id="chatbotInput" type="text" placeholder="Ask about scan, login, history..." maxlength="300">
+        <button id="chatbotSend" type="button">Send</button>
+    </div>
+</section>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>

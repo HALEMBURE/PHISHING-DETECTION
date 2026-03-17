@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+*.pyc
+*.env
+.env
+milestone1/API/.env
+
+# API runtime artifacts
+milestone1/API/*.db
+milestone1/API/prediction_log.csv
+milestone1/API/__pycache__/
+users.db
+
+# Models and generated training artifacts
+milestone1/MODEL/*.pkl
+milestone1/MODEL/dataset_balanced.csv
+
+# Raw or sensitive data
+milestone1/DATA/
+
+# Local IDE/system files
+.DS_Store
+Thumbs.db

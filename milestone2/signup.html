@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - PhishGuard AI</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div class="auth-shell">
+    <section class="auth-hero">
+        <div class="auth-brand">
+            <div class="auth-logo-row">
+                <span class="auth-logo-mark" aria-hidden="true"></span>
+                <h1>PhishGuard AI</h1>
+            </div>
+            <p>Secure URL intelligence</p>
+        </div>
+
+        <h2 class="hero-title">Create Your Account</h2>
+        <p class="hero-copy">Get started in less than a minute.</p>
+    </section>
+
+    <section class="auth-card">
+        <h2 class="auth-title">Create account</h2>
+        <p class="auth-subtitle">Set up your account to start scanning URLs</p>
+
+        <form id="signupForm">
+            <div class="field">
+                <label for="name">Full name</label>
+                <input type="text" id="name" placeholder="Your full name" required>
+            </div>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create password" required>
+            </div>
+
+            <button class="submit-btn" type="submit">Create Account</button>
+        </form>
+
+        <p id="message"></p>
+
+        <p class="auth-link">
+            Already registered? <a href="index.html">Sign in</a>
+        </p>
+    </section>
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

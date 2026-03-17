@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PhishGuard AI</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div class="auth-shell">
+    <section class="auth-hero">
+        <div class="auth-brand">
+            <div class="auth-logo-row">
+                <span class="auth-logo-mark" aria-hidden="true"></span>
+                <h1>PhishGuard AI</h1>
+            </div>
+            <p>Secure URL intelligence</p>
+        </div>
+
+        <h2 class="hero-title">Clean Security Workspace</h2>
+        <p class="hero-copy">Sign in and start scanning URLs.</p>
+    </section>
+
+    <section class="auth-card">
+        <h2 class="auth-title">Sign in</h2>
+        <p class="auth-subtitle">Use your account to access the dashboard</p>
+
+        <form id="loginForm">
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+
+            <button class="submit-btn" type="submit">Login</button>
+        </form>
+
+        <p id="message"></p>
+
+        <p class="auth-link">
+            Need an account? <a href="signup.html">Create one</a>
+        </p>
+    </section>
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,1 +1,1 @@
-window.BACKEND_URL = "https://phishing-detection-h60t.onrender.com";
+window.BACKEND_URL = "https://phishing-backend-bfkf.onrender.com";

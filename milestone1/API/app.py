@@ -72,7 +72,10 @@ ALLOW_CREDENTIALS = False
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOW_ORIGINS,
-    allow_origin_regex=r"^(null|https?://(127\.0\.0\.1|localhost)(:\d+)?)$",
+    allow_origin_regex=(
+        r"^(null|https?://(127\.0\.0\.1|localhost)(:\d+)?"
+        r"|https://[a-z0-9-]+\.onrender\.com)$"
+    ),
     allow_credentials=ALLOW_CREDENTIALS,
     allow_methods=["*"],
     allow_headers=["*"],
